@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<!-- saved from url=(0198)file:///C:/Users/ayyap/AppData/Local/Packages/5319275A.WhatsAppDesktop_cv1g1gvanyjgm/LocalState/sessions/69F6680916BA7CBE6A0C282CDFBE126EA70B5D71/transfers/2026-43/smart%20assignment%20reminder.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Academic Planner</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f5fa;
+    color: #17233b;
+}
+
+header {
+    background: white;
+    padding: 25px;
+    text-align: center;
+    border-bottom: 3px solid #174b98;
+}
+
+header img {
+    display: block;
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+    margin: 0 auto 15px;
+    object-fit: contain;
+}
+
+h1 {
+    color: #174b98;
+}
+
+.container {
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px #00000012;
+}
+
+label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: bold;
+}
+
+input, select {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #bbc5d4;
+    border-radius: 8px;
+    background: white;
+    color: #17233b;
+    font-size: 16px;
+    min-height: 44px;
+}
+
+#subject {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+button {
+    background: #174b98;
+    color: white;
+    padding: 11px 18px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+button:hover {
+    background: #10366d;
+}
+
+.stats {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.stat {
+    flex: 1;
+    min-width: 130px;
+    background: white;
+    padding: 18px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.stat h2 {
+    color: #174b98;
+}
+
+.task {
+    padding: 15px;
+    margin: 12px 0;
+    border: 1px solid #ddd;
+    border-left: 5px solid #174b98;
+    border-radius: 8px;
+}
+
+.task.completed {
+    border-left-color: green;
+    opacity: 0.7;
+}
+
+.task.overdue {
+    border-left-color: red;
+}
+
+.task button {
+    margin-right: 8px;
+}
+
+.delete {
+    background: #c62828;
+}
+
+.delete:hover {
+    background: #8e1b1b;
+}
+
+.high {
+    color: #c62828;
+}
+
+.medium {
+    color: #b77900;
+}
+
+.low {
+    color: green;
+}
+
+@media(max-width:600px) {
+    .container {
+        padding: 12px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="./Smart Academic Planner_files/clg-logo2-scaled.webp" alt="Sri Eshwar College of Engineering Logo">
+
+    <h1>Smart Academic Planner</h1>
+    <p>Never Miss Your Assignment Deadlines!</p>
+</header>
+
+<div class="container">
+
+    <div class="stats">
+        <div class="stat">
+            <h2 id="total">3</h2>
+            Total
+        </div>
+
+        <div class="stat">
+            <h2 id="pending">1</h2>
+            Pending
+        </div>
+
+        <div class="stat">
+            <h2 id="completed">0</h2>
+            Completed
+        </div>
+
+        <div class="stat">
+            <h2 id="overdue">2</h2>
+            Overdue
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Add New Assignment</h2>
+
+        <form id="assignmentForm">
+
+            <label for="title">Assignment Title</label>
+            <input type="text" id="title" placeholder="Enter assignment name" required="">
+
+            <label for="subject">Subject</label>
+
+            <select id="subject" name="subject" required="">
+                <option value="" disabled="" selected="">
+                    Select Subject
+                </option>
+                <option value="MAI">MAI</option>
+                <option value="PAI">PAI</option>
+                <option value="DPCO">DPCO</option>
+                <option value="FET">FET</option>
+                <option value="C++">C++</option>
+                <option value="English">English</option>
+            </select>
+
+            <label for="deadline">Submission Deadline</label>
+            <input type="datetime-local" id="deadline" required="">
+
+            <label for="priority">Priority</label>
+
+            <select id="priority">
+                <option value="High">High</option>
+                <option value="Medium" selected="">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+
+            <button type="submit">
+                Add Assignment
+            </button>
+
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>Upcoming Assignments</h2>
+        <div id="taskList"><div class="task overdue"><h3>dfgfdgdfg</h3><p>Subject: MAI</p><p>Deadline: 24/10/2026, 10:04:00 pm</p><p class="medium">Priority: Medium</p><p>Status: Overdue</p><button>Mark Completed</button><button class="delete">Delete</button></div><div class="task overdue"><h3>sfafsefd</h3><p>Subject: MAI</p><p>Deadline: 30/10/2026, 11:59:00 pm</p><p class="medium">Priority: Medium</p><p>Status: Overdue</p><button>Mark Completed</button><button class="delete">Delete</button></div><div class="task"><h3>Design thinking</h3><p>Subject: MAI</p><p>Deadline: 13/11/2026, 9:51:00 pm</p><p class="high">Priority: High</p><p>Status: Pending</p><button>Mark Completed</button><button class="delete">Delete</button></div></div>
+    </div>
+
+    <div class="card">
+        <h2>Reminder Settings</h2>
+
+        <p>
+            Enable browser notifications to receive deadline
+            alerts while this page is open.
+        </p>
+
+        <button type="button" onclick="enableNotifications()">
+            Enable Notifications
+        </button>
+    </div>
+
+</div>
+
+<script>
+const STORAGE_KEY = "academicPlannerTasks";
+
+let tasks = [];
+
+try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    tasks = Array.isArray(saved) ? saved : [];
+} catch {
+    tasks = [];
+}
+
+function saveTasks() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+}
+
+document.getElementById("assignmentForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const title = document.getElementById("title").value.trim();
+    const subject = document.getElementById("subject").value;
+    const deadline = document.getElementById("deadline").value;
+    const priority = document.getElementById("priority").value;
+
+    if (!title || !subject || !deadline) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    if (new Date(deadline).getTime() <= Date.now()) {
+        alert("Please choose a future deadline.");
+        return;
+    }
+
+    tasks.push({
+        id: crypto.randomUUID(),
+        title: title,
+        subject: subject,
+        deadline: deadline,
+        priority: priority,
+        completed: false,
+        reminded: false
+    });
+
+    saveTasks();
+    displayTasks();
+    this.reset();
+});
+
+function displayTasks() {
+
+    const list = document.getElementById("taskList");
+    list.innerHTML = "";
+
+    tasks.sort((a, b) =>
+        new Date(a.deadline) - new Date(b.deadline)
+    );
+
+    let pending = 0;
+    let completed = 0;
+    let overdue = 0;
+
+    tasks.forEach(task => {
+
+        const due = new Date(task.deadline);
+        const isOverdue = !task.completed && due < new Date();
+
+        if (task.completed) {
+            completed++;
+        } else if (isOverdue) {
+            overdue++;
+        } else {
+            pending++;
+        }
+
+        const div = document.createElement("div");
+        div.className = "task";
+
+        if (task.completed) {
+            div.classList.add("completed");
+        }
+
+        if (isOverdue) {
+            div.classList.add("overdue");
+        }
+
+        const heading = document.createElement("h3");
+        heading.textContent = task.title;
+
+        const subject = document.createElement("p");
+        subject.textContent = "Subject: " + task.subject;
+
+        const date = document.createElement("p");
+        date.textContent = "Deadline: " + due.toLocaleString();
+
+        const priority = document.createElement("p");
+        priority.textContent = "Priority: " + task.priority;
+        priority.className = task.priority.toLowerCase();
+
+        const status = document.createElement("p");
+
+        status.textContent = task.completed
+            ? "Status: Completed"
+            : isOverdue
+            ? "Status: Overdue"
+            : "Status: Pending";
+
+        const completeBtn = document.createElement("button");
+
+        completeBtn.textContent = task.completed
+            ? "Undo"
+            : "Mark Completed";
+
+        completeBtn.onclick = () => toggleComplete(task.id);
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.className = "delete";
+
+        deleteBtn.onclick = () => deleteTask(task.id);
+
+        div.append(
+            heading,
+            subject,
+            date,
+            priority,
+            status,
+            completeBtn,
+            deleteBtn
+        );
+
+        list.appendChild(div);
+    });
+
+    if (tasks.length === 0) {
+        list.textContent = "No assignments added yet.";
+    }
+
+    document.getElementById("total").textContent = tasks.length;
+    document.getElementById("pending").textContent = pending;
+    document.getElementById("completed").textContent = completed;
+    document.getElementById("overdue").textContent = overdue;
+}
+
+function toggleComplete(id) {
+
+    const task = tasks.find(t => t.id === id);
+
+    if (task) {
+        task.completed = !task.completed;
+        saveTasks();
+        displayTasks();
+    }
+}
+
+function deleteTask(id) {
+
+    if (confirm("Delete this assignment?")) {
+        tasks = tasks.filter(t => t.id !== id);
+        saveTasks();
+        displayTasks();
+    }
+}
+
+async function enableNotifications() {
+
+    if (!("Notification" in window)) {
+        alert("Your browser does not support notifications.");
+        return;
+    }
+
+    const permission = await Notification.requestPermission();
+
+    alert(
+        permission === "granted"
+        ? "Notifications enabled!"
+        : "Notification permission not granted."
+    );
+}
+
+function checkReminders() {
+
+    if (!("Notification" in window)) return;
+    if (Notification.permission !== "granted") return;
+
+    let changed = false;
+
+    tasks.forEach(task => {
+
+        if (task.completed || task.reminded) return;
+
+        const remaining =
+            new Date(task.deadline).getTime() - Date.now();
+
+        if (remaining > 0 &&
+            remaining <= 24 * 60 * 60 * 1000) {
+
+            new Notification("Assignment Reminder", {
+                body: task.subject + ": " + task.title +
+                      " is due within 24 hours!"
+            });
+
+            task.reminded = true;
+            changed = true;
+        }
+    });
+
+    if (changed) {
+        saveTasks();
+    }
+}
+
+displayTasks();
+checkReminders();
+
+setInterval(() => {
+    checkReminders();
+    displayTasks();
+}, 60000);
+
+</script>
+
+
+
+</body></html>
